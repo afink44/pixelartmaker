@@ -2,7 +2,7 @@ const grid = document.querySelector('table');
 const button = document.querySelector('[type=submit]');
 button.addEventListener('click', submitClick);
 grid.addEventListener('mousedown', whichMouseButton, true);
-grid.addEventListener('mouseup', stopColoring, true);
+grid.addEventListener('mouseup', noColor, true);
 var firstSubmit = false;
 
 function makeGrid() {
@@ -27,11 +27,11 @@ function submitClick(a) {
         clearTable();
     }
     firstSubmit = true;
-    // create new grid
+    // make a new grid
     makeGrid();
 }
 
-function startColoring(a) {
+function yesColor(a) {
     changeColor(a);
     grid.addEventListener('mouseover', changeColor);
 }
@@ -43,7 +43,7 @@ function changeColor(a) {
     };
 }
 
-function stopColoring() {
+function noColor() {
     grid.removeEventListener('mouseover', changeColor);
 }
 
@@ -53,7 +53,7 @@ function clearTable() {
     }
 }
 
-function erase(e) {
+function erase(a) {
     if (a.target.nodeName === 'TD') {
         a.target.style.removeProperty("background-color");
     };
@@ -62,7 +62,7 @@ function erase(e) {
 function whichMouseButton(a) {
     var mouseButton = a.button;
     if (mouseButton === 0) {
-        startColoring(a);
+        yesColor(a);
     } else if (mouseButton === 2) {
         //don't open context menu
         grid.oncontextmenu = function () {
