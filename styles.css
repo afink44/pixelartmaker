@@ -4,21 +4,25 @@ body {
 
 h1 {
     font-family: Arizonia;
+    color: red;
     font-size: 100px;
     margin: 0.3em;
 }
 
 h2 {
+    color: red;
     margin: 1em 0 0.25em;
 }
 
 h2:first-of-type {
+    color: red;
     margin-top: 0.5em;
 }
 
 table,
 tr,
 td {
+    color: red;
     border: 1px solid black;
 }
 
@@ -28,6 +32,7 @@ table {
 }
 
 tr {
+    color: red;
     height: 20px;
 }
 
